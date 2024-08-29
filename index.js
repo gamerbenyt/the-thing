@@ -48,4 +48,4 @@ function keepAlive() {
     }, 24 * 60 * 60 * 1000); // Every 24 hours
 }
 
-client.login(client.config.token);
+client.login(process.env.DISCORD_BOT_TOKEN);
