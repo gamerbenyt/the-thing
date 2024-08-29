@@ -27,6 +27,6 @@
     "rss-parser": "^3.7.5"
   },
   "engines": {
-    "node": "14.x" // Specify the Node.js version
+    "node": "14.x"
   }
 }
