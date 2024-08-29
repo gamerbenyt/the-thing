@@ -11,6 +11,7 @@ client.on("ready", () => {
     client.user.setActivity("your custom status here", { type: "WATCHING" }); // You can change "WATCHING" to "PLAYING", "LISTENING", etc.
 
     handleUploads();
+    keepAlive(); // Call the keepAlive function
 });
 
 function handleUploads() {
@@ -33,6 +34,18 @@ function handleUploads() {
             }
         });
     }, client.config.watchInterval);
+}
+
+// Keep-alive function without sending messages
+function keepAlive() {
+    setInterval(() => {
+        // Alternatively, you can use any other API interaction like fetching guilds or channels
+        client.guilds.fetch(client.config.guild_id)
+            .then(guild => {
+                console.log(`Fetched guild: ${guild.name}`);
+            })
+            .catch(console.error);
+    }, 24 * 60 * 60 * 1000); // Every 24 hours
 }
 
 client.login(client.config.token);
